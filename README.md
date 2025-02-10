@@ -27,4 +27,44 @@ It integrates **Terraform** for infrastructure management, **SonarCloud** for co
 - **Terraform Apply** executes to provision AWS resources, including:
   - **Amazon EKS (Elastic Kubernetes Service) Cluster**
   - **Amazon ECR (Elastic Container Registry) for storing container images**
-  - **VPC subnet for secure ne
+  - **VPC subnet for secure networking**
+
+### **3. Build, Test & Deploy Workflow**
+- **GitHub Actions** trigger the **CI pipeline** when new code is pushed.
+- The pipeline performs the following steps:
+  1. **Fetch Source Code** - Retrieves the latest application code.
+  2. **Build with Maven** - Compiles the code and generates an application artifact.
+  3. **Static Code Analysis with SonarCloud** - Ensures code quality and security compliance.
+  4. **Containerization with Docker** - Builds the application image and pushes it to **Amazon ECR**.
+  5. **Deployment to Kubernetes with Helm** - Deploys the containerized application to **AWS EKS**.
+  6. **Monitoring & Logging** - Ensures application health and performance.
+
+---
+
+## **Technology Stack**
+| Component | Technology Used |
+|-----------|----------------|
+| **CI/CD Tool** | GitHub Actions |
+| **Infrastructure as Code (IaC)** | Terraform |
+| **Cloud Provider** | AWS (EKS, ECR, VPC) |
+| **Containerization** | Docker |
+| **Orchestration** | Kubernetes (Helm Charts) |
+| **Build System** | Maven |
+| **Security & Code Quality** | SonarCloud |
+| **Source Code Management** | GitHub |
+
+---
+
+## **Benefits of the Project**
+✅ **Automated Infrastructure Provisioning** - Terraform ensures that AWS infrastructure is dynamically created and managed.  
+✅ **Improved Code Quality** - SonarCloud integration ensures security and compliance.  
+✅ **Scalable Kubernetes Deployment** - AWS EKS provides high availability and auto-scaling for containerized applications.  
+✅ **Seamless CI/CD with GitHub Actions** - Automates builds, testing, security scans, and deployments.  
+✅ **GitOps-Driven Workflow** - Ensures that infrastructure and application deployments are version-controlled.  
+
+---
+
+## **Conclusion**
+This **GitOps-based CI/CD pipeline** provides a **fully automated workflow** for **provisioning infrastructure** and **deploying containerized applications** to **AWS EKS** using **Terraform, Docker, and Helm**. 
+
+By integrating **GitHub Actions, SonarCloud, and Amazon ECR**, the solution ensures **security, scalability, and efficiency** in software delivery. 🚀
